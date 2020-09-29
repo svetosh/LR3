@@ -87,7 +87,7 @@ int main ()
     cin >> a;
     cout << a.length() << endl;
     int count = 0;
-    for (int i = 0; i < a.length() - 1; i++) {
+    for (int i = 0; i <= a.length() - 1; i++) {
         if (a[i] == '0') {
             count++;
         }
