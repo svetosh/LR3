@@ -83,5 +83,30 @@ int main ()
     for (int i = 0; i < vec1.size(); ++i) std::cout << vec1[i] << " ";
     std::cout << std::endl;
     ////
-    
+        string a;
+    cin >> a;
+    cout << a.length() << endl;
+    int count = 0;
+    for (int i = 0; i < a.length() - 1; i++) {
+        if (a[i] == '0') {
+            count++;
+        }
+    }
+    if (count == 0) cout << "Net nyley\n";
+    else cout << a.length() / count << endl;
+    int i1, i2;
+    cin >> i1 >> i2;
+    cout << a.substr(i1, i2) << endl;
+
+    string z1 = "can you can a can as a canner can can a can ", z2;
+    cin >> z2;
+    string can = "can ";
+    while (z1.find(can) != -1) {
+        int p = z1.find(can);
+        z1.erase(p, can.size());
+        z1.insert(p, z2 + " ");
+    }
+    cout << z1 << endl;
+}
+return 0;
 }
