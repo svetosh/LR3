@@ -18,7 +18,6 @@ int main ()
 	{
 		std::cout << static_cast<double>(arr[1]*arr[1])+(arr[2]*arr[2])+(arr[5]*arr[5]) << " ";
 		wox+=arr[i];
-	return 0;
 }
 	std::cout << static_cast<double>(arr[1]*arr[1])+(arr[2]*arr[2])+(arr[5]*arr[5]);
 	////
