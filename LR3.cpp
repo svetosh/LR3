@@ -53,33 +53,33 @@ int main ()
 
     delete[] darr;
     ////
-    	int m=0;
-    int a=0;
+    	int a=0;
+    int b=0;
     std::cout << "Введите длину массива" << std::endl;
-    std::cin >> m;
+    std::cin >> a;
     
-    std::vector<int> vec1;
-    for (int i = 0; i < m; ++i) {
-        std::cin >> a;
-        vec1.insert(vec1.end(), a);
+    std::vector<int> vec;
+    for (int i = 0; i < a; ++i) {
+        std::cin >> b;
+        vec.insert(vec1.end(), b);
     }
-    for (int i = 0; i < m; ++i) std::cout << vec1[i] << " ";
+    for (int i = 0; i < a; ++i) std::cout << vec[i] << " ";
     std::cout << std::endl;
-    vec1.insert(vec1.end(), 25); 
-    for (int i = 0; i < vec1.size(); ++i) std::cout << vec1[i] << " ";
+    vec.insert(vec.end(), 25); 
+    for (int i = 0; i < vec.size(); ++i) std::cout << vec1[i] << " ";
     std::cout << std::endl;
     int sum = 0;
-    for (int i = 0; i < vec1.size(); ++i) sum += vec1[i];
+    for (int i = 0; i < vec.size(); ++i) sum += vec1[i];
     std::cout << "Cумма вектора равна " << sum << std::endl;
-    int nomer = -1;   
-    for (int i = 0; i < vec1.size(); ++i) {
-        if (vec1[i] >= 6) {
-            nomer = i;
+    int number = -1;   
+    for (int i = 0; i < vec.size(); ++i) {
+        if (vec[i] >= 6) {
+            number = i;
             break;
         }
     }
-    if (nomer != -1) vec1.erase(vec1.begin()+nomer);
-    for (int i = 0; i < vec1.size(); ++i) std::cout << vec1[i] << " ";
+    if (number != -1) vec.erase(vec.begin()+number);
+    for (int i = 0; i < vec.size(); ++i) std::cout << vec[i] << " ";
     std::cout << std::endl;
     ////
         string a;
