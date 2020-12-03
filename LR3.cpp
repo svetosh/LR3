@@ -1,111 +1,144 @@
 #include <iostream>
-#include <experimental/random>
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 
-int main ()
+using namespace std;
+
+int main()
 {
-	int arr[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-	for (int i = 0; i<10; ++i){
-	arr[i]= std::experimental::randint(-10,10);
-	std::cout << arr[i] << " ";
-}
- std::cout << std::endl;
-	
-	int wox=0;
-	for(int i=0; i<19; ++i)
-	{
-		std::cout << static_cast<double>(arr[1]*arr[1])+(arr[2]*arr[2])+(arr[5]*arr[5]) << " ";
-		wox+=arr[i];
-}
-	std::cout << static_cast<double>(arr[1]*arr[1])+(arr[2]*arr[2])+(arr[5]*arr[5]);
-	////
-		int n=0;
-	std::cout << "n=";
-	std::cin >> n;
-	
-	int* darr = new int [n];
-	
-	for (int i=0; i<n; i++){
-		std::cout << "введите " << i << " элемент: ";
-		std::cin >> darr[i];
-	}
-		for (int i=0; i<n; i++){
-        std::cout << i << " Элемент " << darr[i] << std::endl;
-		}
-		
-		for (int i=0; i<n; i++){
-		if (darr[i]%2==0){
-			darr[i]*=10;
-	}
-	std::cout << i << " Элементы " << darr[i] << std::endl;
-	}
-	
-	int k1=0, k2=0, summ=0;
-	std::cin >> k1 >> k2;
-	if (k1<=k2){
-        for (int i=k1;i<=k2;i++){
-            summ+=arr[i];
-            }
-        }
-    std::cout << summ;
-
-    delete[] darr;
-    ////
-    	int a=0;
-    int b=0;
-    std::cout << "Введите длину массива" << std::endl;
-    std::cin >> a;
-    
-    std::vector<int> vec;
-    for (int i = 0; i < a; ++i) {
-        std::cin >> b;
-        vec.insert(vec1.end(), b);
+    setlocale(LC_ALL, "ru");
+    srand(time(nullptr));
+    int arr[10];
+    cout << "Массив выглядит:" << endl;
+    for (int i = 0; i < 10; ++i)
+    {
+        arr[i] = rand() % 21 - 10;
+        cout << arr[i] << " ";
     }
-    for (int i = 0; i < a; ++i) std::cout << vec[i] << " ";
-    std::cout << std::endl;
-    vec.insert(vec.end(), 25); 
-    for (int i = 0; i < vec.size(); ++i) std::cout << vec1[i] << " ";
-    std::cout << std::endl;
+    cout << endl << "Сумма квадратов 2го 3го и 6го элемента данного массива = "
+         <<  pow(arr[1], 2) + pow(arr[2], 2) + pow(arr[5], 2) << endl;
+    ///
+    int n = 0;
+    cout << endl << "Введите размер массива желательно больше 10 = ";
+    cin >> n;
+
+    int* arr_2 = new int[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Введите " << i << " элемент: ";
+        cin >> arr_2[i];
+    }
+    cout << endl;
+    for (int i = 0; i < n; i++) {
+        cout << i << " Элемент " << arr_2[i] << std::endl;
+    }
+    cout << endl;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr_2[i] % 2 == 0)
+        {
+            arr_2[i] *= 10;
+        }
+        cout << i << " Элементы " << arr_2[i] << std::endl;
+    }
+
+    int k1 = 0,
+        k2 = 0;
+    double sum = 0;
+    cout << "Поиск среднее арифметическое элементов массива с k1-ого по k2-ой" << endl;
+    cin >> k1 >> k2;
+        for (int i = k1;i <= k2;i++)
+        {
+            sum = sum + arr_2[i];
+        }
+    cout << sum / (k2 - k1);
+    delete[] arr_2;
+    
+    int m = 0;
+    cout << "Введите длину массива" << std::endl;
+    cin >> m;
+
+    vector<int> vec;
+    int element;
+    for (int i = 0; i < m; ++i)
+    {
+        cout << "Введите " << i << " элемент ";
+        cin >> element;
+        vec.push_back(element);
+    }
+    for (int i = 0; i < m; ++i)
+    {
+        cout << vec[i] << " ";
+    }
+    cout << std::endl;
+
+    vec.push_back(25);
+    for (int i = 0; i < vec.size(); ++i)
+    {
+        cout << vec[i] << " ";
+    }
+    cout << std::endl;
+
     int sum = 0;
-    for (int i = 0; i < vec.size(); ++i) sum += vec1[i];
-    std::cout << "Cумма вектора равна " << sum << std::endl;
-    int number = -1;   
-    for (int i = 0; i < vec.size(); ++i) {
-        if (vec[i] >= 6) {
-            number = i;
+    for (int i = 0; i < vec.size(); ++i)
+    {
+        sum = sum + pow(vec[i], 2);
+    }
+    cout << "Cумма квадратов массива равна " << sum << std::endl;
+
+    for (int i = 0; i < vec.size(); ++i)
+    {
+        if (vec[i] >= 5)
+        {
+            vec.erase(vec.begin() + i);
             break;
         }
     }
-    if (number != -1) vec.erase(vec.begin()+number);
-    for (int i = 0; i < vec.size(); ++i) std::cout << vec[i] << " ";
-    std::cout << std::endl;
-    ////
-        string a;
-    cin >> a;
+    for (int i = 0; i < vec.size(); ++i)
+    {
+        cout << vec[i] << " ";
+    }
+    cout << std::endl;
+    //// 
+    string a;
+    cout << "Введите строку" << endl;
+    getline(cin, a);
     cout << a.length() << endl;
-    int count = 0;
-    for (int i = 0; i <= a.length() - 1; i++) {
-        if (a[i] == '0') {
-            count++;
+    char ABC[42] = { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x' };
+    int sum = 0;
+    for (int i = 0; i < 42; i++)
+    {
+        for (int j = 0; j < a.length(); j++)
+        {
+            if (tolower(a[j]) == ABC[i])
+            {
+                sum++;
+            }
         }
     }
-    if (count == 0) cout << "Net nyley\n";
-    else cout << a.length() / count << endl;
+    cout << "Numbers in frase = " << sum << endl
+         << "Выберите с какого по какой элемент вы бы хотели использовать " << endl;
+
     int i1, i2;
     cin >> i1 >> i2;
-    cout << a.substr(i1, i2) << endl;
+    cout << a.substr(i1, i2 - i1 + 1) << endl;
 
-    string z1 = "can you can a can as a canner can can a can ", z2;
+    string z1 = "can you can a can as a canner can can a can ?",
+           z2;
+    cout << z1 << endl 
+         << "Введите то на что вы хотите заменить can ";
     cin >> z2;
     string can = "can ";
-    while (z1.find(can) != -1) {
+    while (z1.find(can) != -1)
+    {
         int p = z1.find(can);
         z1.erase(p, can.size());
         z1.insert(p, z2 + " ");
     }
     cout << z1 << endl;
-}
-return 0;
+    
+    return 0;
 }
