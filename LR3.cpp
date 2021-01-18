@@ -58,7 +58,7 @@ int main()
     delete[] arr_2;
     
     int m = 0;
-    cout << "Введите длину массива" << std::endl;
+    cout << "Введите длину массива строго меньше 5ти " << std::endl;
     cin >> m;
 
     vector<int> vec;
@@ -69,16 +69,16 @@ int main()
         cin >> element;
         vec.push_back(element);
     }
-    for (int i = 0; i < m; ++i)
+    for (auto it : vec)
     {
-        cout << vec[i] << " ";
+        cout << it;
     }
     cout << std::endl;
 
     vec.push_back(25);
-    for (int i = 0; i < vec.size(); ++i)
+    for (auto it : vec)
     {
-        cout << vec[i] << " ";
+        cout << it;
     }
     cout << std::endl;
 
@@ -97,9 +97,9 @@ int main()
             break;
         }
     }
-    for (int i = 0; i < vec.size(); ++i)
+    for (auto it : vec)
     {
-        cout << vec[i] << " ";
+        cout << it;
     }
     cout << std::endl;
     //// 
