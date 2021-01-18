@@ -107,9 +107,9 @@ int main()
     cout << "Введите строку" << endl;
     getline(cin, a);
     cout << a.length() << endl;
-    char ABC[42] = { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x' };
-    int sum = 0;
-    for (int i = 0; i < 42; i++)
+    char ABC[19] = { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x' };
+    double sum = 0.0;
+    for (int i = 0; i < 19; i++)
     {
         for (int j = 0; j < a.length(); j++)
         {
@@ -119,13 +119,14 @@ int main()
             }
         }
     }
-    cout << "Numbers in frase = " << sum << endl
+    double share = sum / a.length();
+    cout << "Доля согласных в этом тексте = " << share << endl
          << "Выберите с какого по какой элемент вы бы хотели использовать " << endl;
 
     int i1, i2;
     cin >> i1 >> i2;
     cout << a.substr(i1, i2 - i1 + 1) << endl;
-
+    
     string z1 = "can you can a can as a canner can can a can ?",
            z2;
     cout << z1 << endl 
