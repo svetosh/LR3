@@ -127,7 +127,7 @@ int main()
     cin >> i1 >> i2;
     cout << a.substr(i1, i2 - i1 + 1) << endl;
     
-    string z1 = "Can you can a can as a canner can can a can?", 
+    string z1 = "Can you can a can as a canner can can a can?",
            z2;
     cout << z1 << endl << "Введите то на что вы хотите заменить can ";
     getline(cin, z2);
@@ -140,17 +140,17 @@ int main()
             z1.erase(p, can.size());
             z1.insert(p, z2);
         }
-        else 
+        else
         {
             z1.erase(p, can.size());
             z1.insert(p, back);
         }
-        while (z1.find(back) != -1) 
-        {
-            int p2 = z1.find(back);
-            z1.erase(p2, back.size());
-            z1.insert(p2, can);
-        }
+    }
+    while (z1.find(back) != -1)
+    {
+        int p2 = z1.find(back);
+        z1.erase(p2, back.size());
+        z1.insert(p2, can);
     }
     cout << z1 << endl;
     return 0;
